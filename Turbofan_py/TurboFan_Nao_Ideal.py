@@ -1,12 +1,15 @@
-from ISA_Calculator.isacalc.main_executable import get_atmosphere, calculate_at_h
-
-atmosphere = get_atmosphere()
+from ambiance import Atmosphere
 
 # Inputs from GE CF34-10
 
 M0 = 0.78
 H = 38000/3.281  # m  (1 m = 3.28084 ft)
-T0, P0, d0, a0, mu0 = calculate_at_h(H, atmosphere)
+
+atmosphere = Atmosphere(H)
+T0 = atmosphere.temperature,
+P0 = atmosphere.pressure,
+a0 = atmosphere.speed_of_sound
+
 T0 = 288.15  # K
 gamma_c = 1.4
 cp_c = 1004  # J/(kg.K)
